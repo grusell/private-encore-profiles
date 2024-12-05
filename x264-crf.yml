@@ -14,6 +14,9 @@ encodes:
       force_key_frames: expr:not(mod(n,#{profileParams['gop']?:96}))
       preset: #{profileParams['preset']?:"medium"}
       movflags: faststart
+    x264-params:
+      keyint: #{2 * (profileParams['gop']?:96)}
+      keyint_min: #{profileParams['gop']?:96}
     audioEncode:
       optional: true
       type: AudioEncode
